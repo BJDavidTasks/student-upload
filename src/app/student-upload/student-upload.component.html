@@ -1,0 +1,55 @@
+
+<div >
+  <br>
+  <h1 style="color:#002792" ><b>Dépot de dossier</b></h1>
+  <hr>
+  <form   [formGroup]="profileForm" >
+    <div class="form-group">
+
+      <label  for="first-name"><h3><u><b>Ajouter votre photo de profil ici :</b></u></h3> </label>
+      <input  type="file"  class="file-input" style="display:none" (change)="onFileSelected($event)" #fileUpload>
+      
+        <div class="file-upload text-center" >
+          
+            <button mat-mini-fab color="primary" class="upload-btn"  (click)="fileUpload.click()" >
+                <mat-icon color="warn" class="maticon">attach_file</mat-icon>
+            </button>
+            <br>{{photo || "Aucun fichier sélectionné."}}
+        </div>
+      
+    </div>
+
+    <div class="form-group">
+      <label  for="last-name"><h3><u><b>Ajouter votre déclaration sur l'honneur ici :</b></u></h3> </label>
+      <input  type="file"  class="file-input" style="display:none" (change)="onFileSelected($event)" #attestationinput>
+      <div class="file-upload text-center" >
+        
+      <button mat-mini-fab color="primary" class="upload-btn"  (click)="attestationinput.click()" >
+        <mat-icon color="warn" class="maticon">attach_file</mat-icon>
+    </button>
+    <br>{{attestation || "Aucun fichier sélectionné."}}
+  </div>
+    </div>
+    <br>
+    <p class="text-center" >Completer le formulaire pour pouvoir déposer votre dossier</p>
+    <div>
+      Téléchargement en cours :
+      <div class="progress" >
+          <div class="progress-bar" role="progressbar" ></div>
+      </div>
+  </div>
+      <div class="pull-right">
+        <button  type="button" class="btn btn-success btn-default" (click)="onUpload()"  >
+          <span class="glyphicon glyphicon-upload"></span> Valider
+        </button> 
+        
+        <button type="button" class="btn btn-danger btn-default " >
+          <span class="glyphicon glyphicon-trash"></span> Annuler
+        </button>
+      </div>
+    <br><br><br>
+
+  </form>
+</div>
+
+
